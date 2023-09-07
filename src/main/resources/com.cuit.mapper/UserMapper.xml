@@ -3,6 +3,14 @@
 <mapper namespace="com.cuit.mapper.UserMapper">
 
     <select id="queryByGenderAndName" resultType="com.cuit.pojo.User">
-
+        select * from user
+        <where>
+            <if test="sex != null">
+                sex = #{sex}
+            </if>
+            <if test="username != null">
+                username LIKE CONCAT('%', #{username}, '%')
+            </if>
+        </where>
     </select>
 </mapper>

@@ -63,7 +63,7 @@ public class TestUserService {
     @Test
     public void TestQueryByNameAndSex(){
         User user = new User();
-        user.setUsername("张");
+        user.setUsername("王");
         List<User> list = userService.queryByGenderAndName(user);
         for (User user1 : list) {
             System.out.println(user1);
