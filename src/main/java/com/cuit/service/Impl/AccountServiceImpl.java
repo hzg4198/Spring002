@@ -17,15 +17,16 @@ public class AccountServiceImpl implements AccountService {
 
     @Autowired
     private AccountMapper accountMapper;
+
     @Autowired
     private LogService logService;
-
 
     @Transactional
     @Override
     public void transfer(Integer from, Integer to, Double money) {
         try {
             accountMapper.decreaseMoney(from,money);
+            int i = 1 / 0;
             accountMapper.increaseMoney(to,money);
         }finally {
             logService.log(String.valueOf(from),String.valueOf(to),money);

@@ -1,8 +1,8 @@
 package com.cuit.mapper;
 
 import com.cuit.pojo.User;
+import com.cuit.vo.UserOrders;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -31,4 +31,7 @@ public interface UserMapper {
 
     List<User> queryByGenderAndName(User user);
 
+    List<User> queryMultipleUserById(List<Integer> list);
+
+    List<UserOrders> queryUserOrders();
 }

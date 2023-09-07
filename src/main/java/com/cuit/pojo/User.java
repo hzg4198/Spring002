@@ -11,5 +11,4 @@ public class User {
    private String  birthday;
    private String  sex;
    private String  address;
-
 }

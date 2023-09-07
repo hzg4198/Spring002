@@ -3,23 +3,21 @@ package com.cuit.service;
 
 import com.cuit.config.SpringConfig;
 import com.cuit.pojo.User;
+import com.cuit.vo.UserOrders;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = SpringConfig.class)
 public class TestUserService {
-
-    private UserService userService;
     @Autowired
-    public void SetUserService(UserService userService){
-        this.userService = userService;
-    }
+    private UserService userService;
 
     @Test
     public void TestGetAll(){
@@ -31,7 +29,7 @@ public class TestUserService {
 
     @Test
     public void TestDelete(){
-        int delete = userService.delete(46);
+        int delete = userService.delete(10);
         System.out.println(delete);
     }
 
@@ -68,5 +66,24 @@ public class TestUserService {
         for (User user1 : list) {
             System.out.println(user1);
         }
+    }
+
+    @Test
+    public void TestQueryMultipleUserById(){
+        List<Integer> list = new ArrayList<>();
+        list.add(1);list.add(2);
+        List<User> list1 = userService.queryMultipleUserById(list);
+        for (User user : list1) {
+            System.out.println(user);
+        }
+    }
+
+
+    @Test
+    public void TestQueryUserOrders(){
+       /* List<UserOrders> userOrders = userService.queryUserOrders();
+        for (UserOrders userOrder : userOrders) {
+            System.out.println(userOrder);
+        }*/
     }
 }
