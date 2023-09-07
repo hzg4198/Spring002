@@ -40,8 +40,9 @@ public class TestUserService {
         User user = new User();
         user.setSex("男");
         user.setAddress("cuit");
-        user.setUsername("laowang");
+        user.setUsername("hzg");
         userService.save(user);
+        System.out.println(user);
     }
 
     @Test
@@ -56,6 +57,16 @@ public class TestUserService {
         for (User user : list) {
             System.out.println(user);
 
+        }
+    }
+
+    @Test
+    public void TestQueryByNameAndSex(){
+        User user = new User();
+        user.setUsername("张");
+        List<User> list = userService.queryByGenderAndName(user);
+        for (User user1 : list) {
+            System.out.println(user1);
         }
     }
 }

@@ -14,4 +14,6 @@ public interface UserService {
     int getTotalCount();
     List<User> getAll();
     List<User> queryByUserName(String name);
+    List<User> queryByGenderAndName(User user);
+
 }
